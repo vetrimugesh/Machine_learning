@@ -9,6 +9,8 @@ data = pd.read_csv('gender.csv')
 
 x = data.iloc[:, 1:4]
 y = data.iloc[:, 0]
+x.columns = ['Age', 'Height (cm)', 'Weight (kg)']
+y.columns = ['gender']
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25)
 
