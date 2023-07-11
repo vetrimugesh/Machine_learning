@@ -1,4 +1,3 @@
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
@@ -10,7 +9,6 @@ data = pd.read_csv('gender.csv')
 x = data.iloc[:, 1:4]
 y = data.iloc[:, 0]
 x.columns = ['Age', 'Height (cm)', 'Weight (kg)']
-y.columns = ['gender']
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25)
 
@@ -24,8 +22,8 @@ model.fit(x_train, y_train)
 age = int(input('Enter your age: '))
 height = int(input('Enter your height in cm: '))
 weight = float(input('Enter your weight in kg: '))
+user_input = pd.DataFrame({'Age': [age], 'Height (cm)': [height], 'Weight (kg)': [weight]})
 
-user_input = pd.DataFrame({'age': [age], 'height': [height], 'weight': [weight]})
 user_input_scaled = scaler.transform(user_input)
 
 prediction = model.predict(user_input_scaled)
@@ -39,7 +37,6 @@ else:
     print("The predicted gender is: Male")
 
 
-# In[ ]:
 
 
 
